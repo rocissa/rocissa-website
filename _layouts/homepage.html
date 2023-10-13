@@ -1,0 +1,55 @@
+---
+layout: default
+---
+<div class="homepage-split">
+  <main id="#main">
+    {% if title %}<h1>{{ title }}</h1>{% endif %}
+    {{ content }}
+  </main>
+  <div class="homepage-events">
+    <aside>
+      <h1>Upcoming Events</h1>
+      {% assign today = "now" | date: "%Y-%m-%d" %}
+      {% assign today = today | date: "%s" %}
+      {% for event in collection.events %}
+        {% assign eventdate = event.event_date | date: "%s" %}
+        {% if event_date >= today %}
+          <div class="event">
+            <div class="date">{{ event.event_date | date: "%A, %B %e, %Y" }}</div>
+            <div class="title"><a href="{{ event.url }}">{{ event.title }}</a></div>
+            <div class="location">{{ event.location }}</div>
+          </div>
+        {% endif %}
+      {% endfor %}
+      <p>We have no events planned at this time.  Please check back later.</p>
+    </aside>
+    <aside>
+      <h1>Rochester Security Summit</h1>
+      <div class="rss-logo"><a href="https://www.rochestersecurity.org" target="_blank"><img src="/images/rsslogo.png" alt="Rochester Security Summit"></a></div>
+      {% assign summitEnds = site.summit_end_date | date: "%s" %}
+      {% if summitEnds >= today %}
+        <div class="rss-dates">{% daterange site.summit_start_date, site.summit_end_date %}</div>
+        <div class="rss-location">{{ site.summit_location }}</div>
+      {% endif %}
+      <p>Held annually during National Cyber Security Awareness Month, the Rochester Security Summit is a leading regional event that brings together a broad range of experts and professionals from the field of information security, fostering discussion, knowledge sharing, and networking to help drive innovation and address the evolving challenges in the security landscape.</p>
+    </aside>
+  </div>
+</div>
+<div class="content-cards">
+  <aside class="card">
+    <h1>Chapter Sponsorship</h1>
+    <p class="centered"><a class="button" href="&#109;&#097;&#105;&#108;&#116;&#111;:&#109;&#101;&#109;&#098;&#101;&#114;&#115;&#104;&#105;&#112;&#064;&#114;&#111;&#099;&#105;&#115;&#115;&#097;&#046;&#111;&#114;&#103;" aria-label="Contact us about becoming a sponsor">Contact Us</a></p>
+    <p>Interested in becoming a chapter sponsor?<br>
+      Email us at <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#109;&#101;&#109;&#098;&#101;&#114;&#115;&#104;&#105;&#112;&#064;&#114;&#111;&#099;&#105;&#115;&#115;&#097;&#046;&#111;&#114;&#103;">&#109;&#101;&#109;&#098;&#101;&#114;&#115;&#104;&#105;&#112;&#064;&#114;&#111;&#099;&#105;&#115;&#115;&#097;&#046;&#111;&#114;&#103;</a>.</p>
+  </aside>
+  <aside class="card">
+    <h1>Membership</h1>
+    <p class="centered"><a class="button" href="https://www.issa.org/general/register_start.asp" aria-label="Become a member of ISSA and the Rochester chapter today">Join Today</a></p>
+    <p>Questions? Contact us at <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#109;&#101;&#109;&#098;&#101;&#114;&#115;&#104;&#105;&#112;&#064;&#114;&#111;&#099;&#105;&#115;&#115;&#097;&#046;&#111;&#114;&#103;">&#109;&#101;&#109;&#098;&#101;&#114;&#115;&#104;&#105;&#112;&#064;&#114;&#111;&#099;&#105;&#115;&#115;&#097;&#046;&#111;&#114;&#103;</a></p>
+  </aside>
+  <aside class="card">
+    <h1>Mailing List</h1>
+    <p class="centered"><a href="https://rochestersecurity.us10.list-manage.com/subscribe?u=d959327774f7ee5c2ce9d4f38&id=ea5d0e85ab" class="button" aria-label="Subscribe to our mailing list">Subscribe</a></p>
+    <p>Stay informed about meetings, events and job opportunities.</p>
+  </aside>
+</div>

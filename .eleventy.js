@@ -7,6 +7,7 @@ const cacheBuster = require("@mightyplow/eleventy-plugin-cache-buster")
 const markdownItAttrs = require("markdown-it-attrs")
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
 const { EleventyRenderPlugin } = require("@11ty/eleventy")
+const strftime = require('strftime')
 
 module.exports = function (eleventyConfig) {
     // ignore the _drafts directory when building for production
@@ -90,6 +91,28 @@ module.exports = function (eleventyConfig) {
             sourcemap: process.env.ELEVENTY_ENV !== "production",
             plugins: [lessLoader()]
         })
+    })
+
+    /**
+     * Format a range of dates in longform English format
+     */
+    eleventyConfig.addShortcode("daterange", function (start, end) {
+        startDate = new Date(start)
+        endDate = new Date(end)
+
+        if(startDate == endDate) {
+            // single day
+            return strftime("%B %e, %Y", startDate)
+        }
+        else if(startDate.getFullYear() != endDate.getFullYear() || startDate.getMonth() != endDate.getMonth()) {
+            // in different years or months? return two full dates
+            return strftime("%B %e, %Y", startDate) + " - " + strftime("%B %e, %Y", endDate)
+        }
+
+        // return month day-day, year
+        let month = strftime("%B", startDate)
+        let year = strftime("%Y", startDate)
+        return month + " " + startDate.getDate() + " - " + endDate.getDate() + ", " + year
     })
 
 	return {
