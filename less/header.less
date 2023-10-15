@@ -1,0 +1,57 @@
+header {
+  background-color: #fff;
+  padding: 5px 0;
+  h1.logo {
+    background-image: url(../images/rocissa-logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 75px;
+    width: 225px;
+    padding: 0;
+    margin: 0 auto;
+    
+    span {
+      display: block;
+      height: 0;
+      margin-left: -9999em;
+    }
+  }
+  
+  h1 a {
+    display: block;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    
+    &:focus {
+      outline: 3px solid;
+      border-radius: 5px;
+    }
+  }
+}
+
+@keyframes showskipnav {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 0;
+  }
+}
+.skip-nav {
+  position: absolute;
+  display: block;
+  background-color: #e00;
+  color: #fff;
+  top: -100%;
+  left: 0;
+  padding: 5px;
+  z-index: 99999;
+}
+.skip-nav:focus {
+  top: 0;
+  -webkit-animation-name: showskipnav;
+          animation-name: showskipnav;
+  -webkit-animation-duration: 0.75s;
+          animation-duration: 0.75s;
+}

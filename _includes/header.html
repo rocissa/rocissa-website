@@ -1,0 +1,31 @@
+<div class="header-wrap">
+  <header>
+    <a class="skip-nav" href="#main">Skip to Content</a>
+    <h1 class="logo"><a href="/"><span>ISSA Rochester Chapter</span></a></h1>
+  </header>
+</div>
+<div class="nav-wrap">
+  <nav id="main-nav" role="navigation" aria-label="Main Menu"
+       x-trap.noscroll.inert="menuVisible"
+  >
+    <button id="hamburger"
+            :aria-expanded="(menuVisible) ? 'true' : 'false'"
+            @click="menuVisible = !menuVisible"
+    ><span class="fa-solid" :class="(menuVisible) ? 'fa-times' : 'fa-bars'"></span><span class="hidden-label">Menu</span></button>
+    <div id="main-nav-panel" x-show="menuVisible || fullScreen" style="display: none;">
+      <ul @click.outside="!fullScreen && menuVisible = false"
+          @keydown.escape.window="!fullScreen) && menuVisible = false"
+      >
+        {% assign navPages = collections.all | eleventyNavigation %}
+        {% for item in navPages %}
+          <li {%if item.class %}class="{{ item.class }}"{% endif %}><a href="{{ item.url }}" {% if item.url == page.url %}aria-current="page"{% endif %}>{{ item.title }}</a></li>
+       {% endfor %}
+      </ul>
+    </div>
+  </nav>
+</div>
+{% if hero_class %}
+<div class="hero {{ hero_class }}" role="image" aria-label="{{ hero_alt }}">
+</div>
+{% endif %}
+

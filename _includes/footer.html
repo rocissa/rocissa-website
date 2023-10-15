@@ -1,0 +1,26 @@
+<div class="footer-wrap">
+    <footer>
+        <nav role="navigation" class="footer-nav">
+          <ul>
+            {% assign navPages = collections.all | eleventyNavigation %}
+            {% for item in navPages %}
+              <li {% if item.class %}class="{{ item.class }}"{% endif %}><a href="{{ item.url }}" {% if item.url == page.url %}aria-current="page"{% endif %}>{{ item.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+        <div class="social-media">
+          <ul>
+            <li><a href="https://www.facebook.com/RocSecSummit/" target="_blank"><span class="fa-brands fa-facebook"><span class="hidden-label">Facebook</span></span></a></li>
+            <li><a href="https://twitter.com/rocsecsummit" target="_blank"><span class="fa-brands fa-twitter"><span class="hidden-label">Twitter</span></span></a></li>
+            <li><a href="https://www.linkedin.com/company/rochester-security-summit/" target="_blank"><span class="fa-brands fa-linkedin"><span class="hidden-label">LinkedIn</span></span></a></li>
+          </ul>
+        </div>
+        <div class="calls-to-action">
+          <ul>
+            <li><a href="https://www.issa.org/general/register_start.asp" target="_blank">Join Now</a></li>
+            <li><a href="https://rochestersecurity.us10.list-manage.com/subscribe?u=d959327774f7ee5c2ce9d4f38&id=ea5d0e85ab" target="_blank">Subscribe to Our Mailing List</a></li>
+          </ul>
+        </div>
+        <div class="copyright">Copyright &copy; {{ "now" | date:"%Y" }} Rochester ISSA Chapter. All rights reserved.</div>
+    </footer>
+</div>

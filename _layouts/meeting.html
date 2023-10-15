@@ -1,0 +1,25 @@
+---
+layout: default
+section: meeting
+---
+<nav class="breadcrumb" aria-label="Breadcrumb Navigation">
+  {% if eleventyNavigation.key %}
+    {% assign crumbs = collections.all | eleventyNavigationBreadcrumb: eleventyNavigation.key, navOptions %}
+    <ol>
+      <li><a href="/">ISSA Rochester Chapter</a></li>
+
+      {% for segment in crumbs %}
+        {% if segment.url == page.url %}
+          <li>{{ segment.title }}</li>
+        {% else %}
+          <li><a href="{{ segment.url}}">{{ segment.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+  {% endif %}
+</nav>
+<main class="meeting">
+  {% if title %}<h1>{{ title }}</h1>{% endif %}
+
+  {{ content }}
+</main>
