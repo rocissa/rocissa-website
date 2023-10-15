@@ -138,3 +138,46 @@ th, td {
   border: 1px solid #000;
   padding: 3px;
 }
+
+body.meeting main {
+  display: flex;
+  flex-flow: row wrap;
+
+  h2, h3, p {
+    width: 100%;
+  }
+
+  article.past-meeting,
+  article.meeting {
+    border: 1px solid #ddd;
+    text-align: center;
+    margin: 1em;
+    box-sizing: border-box;
+    padding: 1rem;
+
+    h1 {
+      font-size: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .date,
+    .location {
+      font-weight: bold;
+      color: #000;
+    }
+
+    .teaser {
+      margin: .5em 0;
+      text-align: justify;
+      color: #000;
+    }
+  }
+
+  @media screen and (min-width: 800px) {
+    article.past-meeting,
+    article.meeting {
+      width: 45%;
+    }
+  }
+}
