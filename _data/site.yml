@@ -5,3 +5,7 @@ site.baseurl: '/'
 summit_start_date: 2023-10-25
 summit_end_date: 2023-10-26
 summit_location: "Rochester Riverside Convention Center"
+
+# info@rocissa.org encode to try to prevent spam rsvp_email contains mailto: for hrefs, display is address only
+rsvp_email: "&#109;&#097;&#105;&#108;&#116;&#111;:&#105;&#110;&#102;&#111;&#064;&#114;&#111;&#099;&#105;&#115;&#115;&#097;&#046;&#111;&#114;&#103;"
+rsvp_email_display: "&#105;&#110;&#102;&#111;&#064;&#114;&#111;&#099;&#105;&#115;&#115;&#097;&#046;&#111;&#114;&#103;"
