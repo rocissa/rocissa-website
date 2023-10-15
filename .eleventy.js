@@ -41,6 +41,15 @@ module.exports = function (eleventyConfig) {
     // implement Jekyll's markdownify plugin (parse markdown in variables)
 	eleventyConfig.addFilter("markdownify", value => (value) ? md.render(value) : "")
 
+    // dates without a timezone are assumed to be in UTC which causes them to be off by a day
+    // when displayed on the site.  This adjusts the timestamps to factor in the local timezone.
+    eleventyConfig.addFilter("localtime", value => {
+        let date = new Date(value)
+        let tz = date.getTimezoneOffset()
+        let newdate = new Date(date.getTime() + (tz * 60000))
+        return newdate
+    })
+
 	// allow parsng yaml data files
     eleventyConfig.addDataExtension("yaml, yml", contents => yaml.load(contents));
 
