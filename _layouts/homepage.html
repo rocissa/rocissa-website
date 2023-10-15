@@ -8,20 +8,24 @@ layout: default
   </main>
   <div class="homepage-events">
     <aside>
-      <h1>Upcoming Events</h1>
-      {% assign today = "now" | date: "%Y-%m-%d" %}
-      {% assign today = today | date: "%s" %}
-      {% for event in collection.events %}
-        {% assign eventdate = event.event_date | date: "%s" %}
-        {% if event_date >= today %}
+      <h1>Upcoming Meetings</h1>
+      {% assign upcomingCount = 0 %}
+      {% assign today = "now" | date: "%Y-%m-%d" | date:"%s" %}
+      {% for meeting in collection.meetings %}
+        {% assign meetingDate = meeting.data.meeting_date | date: "%s" %}
+        {% if meetingDate >= today %}
+          {% assign upcomingCount = upcomingCount | plus: 1 %}
           <div class="event">
-            <div class="date">{{ event.event_date | date: "%A, %B %e, %Y" }}</div>
-            <div class="title"><a href="{{ event.url }}">{{ event.title }}</a></div>
-            <div class="location">{{ event.location }}</div>
+            {%- if meeting.data.hide_date != true -%}<div class="date">{{ meeting.data.meeting_date | date: "%A, %B %e, %Y" }}</div>{%- endif -%}
+            <div class="title"><a href="{{ meeting.url }}">{{ meeting.data.title }}</a></div>
+            {%- if meeting.data.location -%}<div class="location">{{ meeting.location }}</div>{%- endif -%}
+            {%- if meeting.data.teaser -%}<div class="teaser">{{ meeting.data.teaser }}</div>{%- endif -%}
           </div>
         {% endif %}
       {% endfor %}
-      <p>We have no events planned at this time.  Please check back later.</p>
+      {% if upcomingCount == 0 %}
+        <p>We have no meetings planned at this time.  Please check back later.</p>
+      {% endif %}
     </aside>
     <aside>
       <h1>Rochester Security Summit</h1>
