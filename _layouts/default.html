@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="{{ site.baseurl }}/js/site.js" defer></script>
   </head>
-  <body>
+  <body {% if section %}class="{{ section }}"{% endif %}>
     <div class="page-wrap" x-data="{
       menuVisible: false,
       fullScreen: window.matchMedia('(min-width: 800px)').matches
