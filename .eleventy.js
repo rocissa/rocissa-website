@@ -8,6 +8,8 @@ const markdownItAttrs = require("markdown-it-attrs")
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
 const { EleventyRenderPlugin } = require("@11ty/eleventy")
 const strftime = require('strftime')
+const faviconsPlugin = require("eleventy-plugin-gen-favicons");
+
 
 module.exports = function (eleventyConfig) {
     // ignore the _drafts directory when building for production
@@ -77,6 +79,13 @@ module.exports = function (eleventyConfig) {
 
     // enable the Eleventy Navigation plugin
     eleventyConfig.addPlugin(eleventyNavigationPlugin)
+
+    eleventyConfig.addPlugin(faviconsPlugin, {
+        manifestData: {
+            name: "Information Systems Security Association - Rochester Chapter",
+            short_name: "RocISSA"
+        }
+    })
 
     eleventyConfig.on("eleventy.before", () => {
         // build jssrc/site.js and less/site.less
