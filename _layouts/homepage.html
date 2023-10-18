@@ -9,23 +9,24 @@ layout: default
   <div class="homepage-events">
     <aside>
       <h1>Upcoming Meetings</h1>
-      {% assign upcomingCount = 0 %}
-      {% assign today = "now" | date: "%Y-%m-%d" | date:"%s" %}
-      {% for meeting in collection.meetings %}
-        {% assign meetingDate = meeting.data.meeting_date | date: "%s" %}
-        {% if meetingDate >= today %}
-          {% assign upcomingCount = upcomingCount | plus: 1 %}
-          <div class="event">
-            {%- if meeting.data.hide_date != true -%}<div class="date">{{ meeting.data.meeting_date | date: "%A, %B %e, %Y" }}</div>{%- endif -%}
-            <div class="title"><a href="{{ meeting.url }}">{{ meeting.data.title }}</a></div>
-            {%- if meeting.data.location -%}<div class="location">{{ meeting.location }}</div>{%- endif -%}
-            {%- if meeting.data.teaser -%}<div class="teaser">{{ meeting.data.teaser }}</div>{%- endif -%}
-          </div>
-        {% endif %}
-      {% endfor %}
-      {% if upcomingCount == 0 %}
+      {%- assign upcoming = false -%}
+      {%- assign today = "now" | date: "%Y-%m-%dT00:00:00%z" | date: "%s" -%}
+      {%- for meeting in collections.meetings | sort:"meeting_date" -%}
+        {%- assign meetingDate = meeting.data.meeting_date | localtime | date:"%s" -%}
+        {%- if meetingDate >= today -%}
+          <article class="meeting">
+            <h1><a href="{{meeting.url }}">{{ meeting.data.title }}</a></h1>
+            {%- if meeting.data.hide_date != true -%}<div class="date">{{ meeting.data.meeting_date | localtime | date: "%A, %B %d, %Y" }}</div>{%- endif -%}
+            {%- if meeting.data.location -%}<div class="location">{{ meeting.data.location }}</div>{%- endif -%}
+            {%-if meeting.data.teaser -%}<div class="teaser">{{ meeting.data.teaser }}</div>{%- endif -%}
+          </article>
+          {%- assign upcoming = true -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if upcoming == false -%}
         <p>We have no meetings planned at this time.  Please check back later.</p>
-      {% endif %}
+      {%- endif -%}
     </aside>
     <aside>
       <h1>Rochester Security Summit</h1>
