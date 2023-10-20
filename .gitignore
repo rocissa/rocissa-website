@@ -1,5 +1,5 @@
 _site
-.DS_SStore
+.DS_Store
 .sass-cache
 node_modules
 .env
