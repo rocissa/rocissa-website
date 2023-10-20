@@ -1,7 +1,8 @@
 ---
 layout: homepage
 hero_class: hero-homepage
-hero_alt: "A view of the tops of the Crossroads and Aquaduct Buildings in downtown Rochester, including rhe statue of Mercury atop the Aquaduct Building, against a blue sky."
+hero_alt: "A view of the Rochester skyline at dusk. Notable landmarks include the Genesee River, the Douglas-Anthony Bridge, The Metropolitan, 1300 Clinton Square, Legacy Tower (lighted in green), Blue Cross Arena, Tower 280, and Innovation Square."
+hero_attribution: "[Photo](https://en.wikipedia.org/wiki/Rochester,_New_York#/media/File:RochesterSkyline2017.jpg) by Harley D. ([Harleyd613](https://commons.wikimedia.org/wiki/User:Harleyd613)). Used with permission: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)."
 eleventyNavigation:
     key: Home
     class: hide-fullscreen hide-footer
