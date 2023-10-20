@@ -96,8 +96,32 @@ footer {
       }
     }
   }
-  
-  .copyright {
-    margin: 0 .7rem;
+
+  .subfooter {
+    .copyright, .attribution {
+      margin: 0 .7rem;
+      box-sizing: border-box;
+    }
+
+    .attribution p {
+      font-size: .75rem;
+      margin: 2px 0;
+
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    @media screen and (min-width: 800px) {
+      display: flex;
+
+      .copyright, .attribution {
+        width: 50%;
+      }
+
+      .attribution {
+        text-align: right;
+      }
+    }
   }
 }

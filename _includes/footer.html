@@ -21,6 +21,10 @@
             <li><a href="https://rochestersecurity.us10.list-manage.com/subscribe?u=d959327774f7ee5c2ce9d4f38&id=ea5d0e85ab" target="_blank">Subscribe to Our Mailing List</a></li>
           </ul>
         </div>
-        <div class="copyright">Copyright &copy; {{ "now" | date:"%Y" }} Rochester ISSA Chapter. All rights reserved.</div>
+
+        <div class="subfooter">
+          <div class="copyright">Copyright &copy; {{ "now" | date:"%Y" }} Rochester ISSA Chapter. All rights reserved.</div>
+          {% if hero_attribution %}<div class="attribution">{{ hero_attribution | markdownify }}</div>{% endif %}
+        </div>
     </footer>
 </div>
