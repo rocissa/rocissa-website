@@ -4,6 +4,7 @@ layout: page
 eleventyNavigation:
   key: newsletters
   title: Newsletters
+  order: 2
 ---
 ## 2016
 

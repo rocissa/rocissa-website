@@ -4,6 +4,7 @@ layout: page
 eleventyNavigation:
   key: about
   title: About
+  order: 3
 ---
 The Information Systems Security Association (ISSA) is a not for profit business association comprised of information security professionals and practitioners. Members include practitioners at all levels of the security field in a broad range of industries, such as communications, education, healthcare, manufacturing, financial and government. The Rochester Chapter was the 101st official chapter of the international Information Systems Security Association.
 

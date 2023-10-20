@@ -4,6 +4,7 @@ layout: page
 eleventyNavigation:
   key: contact
   title: Contact
+  order: 4
 ---
 
 ## Membership

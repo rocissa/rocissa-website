@@ -6,6 +6,7 @@ eleventyNavigation:
   key: meetings
   title: Meetings
   class: meetings
+  order: 1
 ---
 {%- assign today = "now" | date: "%Y-%m-%dT00:00:00%z" | date: "%s" -%}
 <h2>Upcoming Meetings</h2>
