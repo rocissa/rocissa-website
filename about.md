@@ -14,7 +14,7 @@ Beginning in 2006, the Rochester ISSA members hosted the first annual Rochester 
 
 ## Chapter Bylaws
 
-[Rochester Chapter Bylaws (PDF)](/about/Rochester-Chapter-Bylaws-2021-12-01.pdf)
+[Rochester Chapter Bylaws (PDF)](/about/Rochester-ISSA-Bylaws-2021-12-01.pdf)
 
 ## Rochester ISSA Officers
 
