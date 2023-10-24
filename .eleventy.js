@@ -115,8 +115,13 @@ module.exports = function (eleventyConfig) {
      * Format a range of dates in longform English format
      */
     eleventyConfig.addShortcode("daterange", function (start, end) {
-        startDate = new Date(start)
-        endDate = new Date(end)
+        let startDate = new Date(start)
+        let endDate = new Date(end)
+
+        let tz = startDate.getTimezoneOffset()
+        startDate = new Date(startDate.getTime() + (tz * 60000))
+        endDate = new Date(endDate.getTime() + (tz * 60000))
+
 
         if(startDate == endDate) {
             // single day
