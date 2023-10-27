@@ -26,5 +26,5 @@ Beginning in 2006, the Rochester ISSA members hosted the first annual Rochester 
 |Communications Officer|Tim Minsterman|
 |Treasurer|David Warden|
 |Membership Director|Joe Pierson|
-|web Administrator|Jason Pitoniak|
+|Web Administrator|Jason Pitoniak|
 |Past President|Rich Savacool|
