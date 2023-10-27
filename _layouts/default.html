@@ -13,8 +13,12 @@
   <body {% if section %}class="{{ section }}"{% endif %}>
     <div class="page-wrap" x-data="{
       menuVisible: false,
-      fullScreen: window.matchMedia('(min-width: 800px)').matches
-    }">
+      fullScreen: window.matchMedia('(min-width: 800px)')
+    }"
+    x-init="fullScreen.addEventListener('change', fs => {
+      fullScreen = fs
+      menuVisible = false
+    })">
       {% include "header.html" %}
       <div class="content-wrap">
         <div class="content">

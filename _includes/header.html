@@ -12,13 +12,13 @@
             :aria-expanded="(menuVisible) ? 'true' : 'false'"
             @click="menuVisible = !menuVisible"
     ><span class="fa-solid" :class="(menuVisible) ? 'fa-times' : 'fa-bars'"></span><span class="hidden-label">Menu</span></button>
-    <div id="main-nav-panel" x-show="menuVisible || fullScreen" style="display: none;">
-      <ul @click.outside="!fullScreen && menuVisible = false"
-          @keydown.escape.window="!fullScreen) && menuVisible = false"
+    <div id="main-nav-panel" x-show="fullScreen.matches || menuVisible" style="display: none;">
+      <ul @click.outside="menuVisible = (!fullScreen.matches && menuVisible) && false"
+          @keydown.escape.window="menuVisible = (!fullScreen.matches && menuVisible) && false"
       >
         {% assign navPages = collections.all | eleventyNavigation %}
         {% for item in navPages %}
-          <li {%if item.class %}class="{{ item.class }}"{% endif %}><a href="{{ item.url }}" {% if item.url == page.url %}aria-current="page"{% endif %}>{{ item.title }}</a></li>
+          <li {% if item.class %}class="{{ item.class }}"{% endif %}><a href="{{ item.url }}" {% if item.url == page.url %}aria-current="page"{% endif %}>{{ item.title }}</a></li>
        {% endfor %}
       </ul>
     </div>
