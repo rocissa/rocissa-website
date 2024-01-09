@@ -18,13 +18,13 @@ Beginning in 2006, the Rochester ISSA members hosted the first annual Rochester 
 
 ## Rochester ISSA Officers
 
-|Position|2023 Officers|
+|Position|2024 Officers|
 |--------|-------------|
 |President|John King|
 |Vice President|Rose Rozeski|
 |Secretary|Keith Hunt|
-|Communications Officer|Tim Minsterman|
+|Communications Officer|Joe Pierson|
 |Treasurer|David Warden|
-|Membership Director|Joe Pierson|
+|Membership Director|Tim Minsterman|
 |Web Administrator|Jason Pitoniak|
 |Past President|Rich Savacool|
