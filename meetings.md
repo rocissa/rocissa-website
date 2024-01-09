@@ -17,7 +17,7 @@ eleventyNavigation:
   {%- if meetingDate >= today -%}
     <article class="meeting">
         <h1><a href="{{meeting.url }}">{{ meeting.data.title }}</a></h1>
-        {%- if meeting.data.hide_date != true -%}<div class="date">{{ meeting.data.meeting_date | localtime | date: "%A, %B %d, %Y" }}</div>{%- endif -%}
+        {%- if meeting.data.hide_date != true -%}<div class="date">{{ meeting.data.meeting_date | localtime | date: "%A, %B %e, %Y" }}</div>{%- endif -%}
         {%- if meeting.data.location -%}<div class="location">{{ meeting.data.location }}</div>{%- endif -%}
         {%-if meeting.data.teaser -%}<div class="teaser">{{ meeting.data.teaser }}</div>{%- endif -%}
     </article>
@@ -43,7 +43,7 @@ eleventyNavigation:
     {%- endif -%}
     <article class="past-meeting">
         <h1><a href="{{meeting.url }}">{{ meeting.data.title }}</a></h1>
-        {%- if meeting.data.hide_date != true -%}<div class="date">{{ meeting.data.meeting_date | localtime | date: "%A, %B %d, %Y" }}</div>{%- endif -%}
+        {%- if meeting.data.hide_date != true -%}<div class="date">{{ meeting.data.meeting_date | localtime | date: "%A, %B %e, %Y" }}</div>{%- endif -%}
         {%-if meeting.data.teaser -%}<div class="teaser">{{ meeting.data.teaser }}</div>{%- endif -%}
     </article>
   {%- endif -%}
