@@ -8,8 +8,11 @@ const markdownItAttrs = require("markdown-it-attrs")
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
 const { EleventyRenderPlugin } = require("@11ty/eleventy")
 const strftime = require('strftime')
-const faviconsPlugin = require("eleventy-plugin-gen-favicons");
-
+const faviconsPlugin = require("eleventy-plugin-gen-favicons")
+const { tzlib_get_ical_block } = require("timezones-ical-library")
+const fastglob = require("fast-glob")
+const fs = require("fs")
+const wordwrap = require("wordwrapjs")
 
 module.exports = function (eleventyConfig) {
     // ignore the _drafts directory when building for production
@@ -25,6 +28,7 @@ module.exports = function (eleventyConfig) {
     // process Markdown and HTML templates; copy image files and PDFs that are stored anywhere in the site
 	eleventyConfig.setTemplateFormats([
 		"md",
+        "liquid",
 		"html",
 		"jpg",
 		"jpeg",
@@ -136,6 +140,51 @@ module.exports = function (eleventyConfig) {
         let month = strftime("%B", startDate)
         let year = strftime("%Y", startDate)
         return month + " " + startDate.getDate() + " - " + endDate.getDate() + ", " + year
+    })
+
+    /*
+     * Add a "icalendar" collection to create ics files for meetings
+     * if they have a "start" value in their front matter
+     */
+    eleventyConfig.addCollection("icalendar", function(collectionApi) {
+        let meetings = collectionApi.getFilteredByTag("meetings")
+        let ical = meetings.filter(entry => (typeof entry.data.start_time != "undefined") ? true : false)
+        return ical
+    })
+
+    /*
+     * Shortcode to generate a VTIMEZONE block for iCalendar (ics) files
+     */
+    eleventyConfig.addShortcode("timezoneblock", function (tzname) {
+        return tzlib_get_ical_block(tzname)[0]
+    })
+
+    /*
+     * Wordwrap filter
+     */
+    eleventyConfig.addFilter("wordwrap", (text, width, eol) => {
+        return wordwrap.wrap(text, {
+            width: width,
+            eol: eol
+        })
+    })
+
+    /*
+     * Reformat iCalendar files to use CRLF line endings
+     */
+    eleventyConfig.on("eleventy.after", () => {
+        const ics = fastglob.sync(['_site/**/*.ics'])
+        ics.map((path) => {
+            fs.readFile(path, (err, data) => {
+                let d = data.toString();
+                d = d.replaceAll("\r", "").replaceAll("\n", "\r\n");
+                fs.writeFile(path, d, err => {
+                    if(err){
+                        console.log(err)
+                    }
+                })
+            })
+        })
     })
 
 	return {

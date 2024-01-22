@@ -20,6 +20,10 @@ eleventyNavigation:
         {%- if meeting.data.hide_date != true -%}<div class="date">{{ meeting.data.meeting_date | localtime | date: "%A, %B %e, %Y" }}</div>{%- endif -%}
         {%- if meeting.data.location -%}<div class="location">{{ meeting.data.location }}</div>{%- endif -%}
         {%-if meeting.data.teaser -%}<div class="teaser">{{ meeting.data.teaser }}</div>{%- endif -%}
+        <ul class="meeting-actions">
+            {%- if meeting.data.rsvp_link -%}<li><a href="{{ meeting.data.rsvp_link }}"><span class="fa-light fa-reply"></span> RSVP</a></li>{%- endif -%}
+            {%-if meeting.data.hide_date != true -%}<li><a href="/meetings/{{ meeting.data.title | slugify }}.ics"><span class="fa-light fa-calendar-circle-plus"></span> Add To Calendar</a></li>{%- endif -%}
+        </ul>
     </article>
     {%- assign upcoming = true -%}
   {%- endif -%}

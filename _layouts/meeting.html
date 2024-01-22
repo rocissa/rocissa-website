@@ -22,4 +22,14 @@ section: meeting
   {% if title %}<h1>{{ title }}</h1>{% endif %}
 
   {{ content }}
+
+  {{ meeting_date }}
+
+  {%- assign meetingDate = meeting_date | localtime | date:"%s" -%}
+  {%- if meetingDate >= today -%}
+  <ul class="meeting-actions">
+    {%- if rsvp_link -%}<li><a href="{{ meeting.data.rsvp_link }}"><span class="fa-light fa-reply"></span> RSVP</a></li>{%- endif -%}
+    {%-if meeting.data.hide_date != true -%}<li><a href="/meetings/{{ meeting.data.title | slugify }}.ics"><span class="fa-light fa-calendar-circle-plus"></span> Add To Calendar</a></li>{%- endif -%}
+  </ul>
+  {%- endif -%}
 </main>

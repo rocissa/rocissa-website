@@ -1,0 +1,34 @@
+---
+pagination:
+  data: collections.icalendar
+  size: 1
+permalink: "meetings/{{ pagination.items[0].data.title | slugify }}.ics"
+eleventyExcludeFromCollections: true
+---
+{%- for item in pagination.items -%}
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:-//rocissa.org//RocISSA Calendar
+METHOD:PUBLISH
+X-PUBLISHED-TTL:PT1H
+{% timezoneblock "America/New_York" %}
+BEGIN:VEVENT
+UID:{{ item.data.title | slugify }}@rocissa.org
+SUMMARY:{{ item.data.title | replace: ",", "\\," | wordwrap: 75, "\n  " }}
+{%- assign teaser = item.data.teaser | replace: "\n", "\\n" -%}
+{%- assign slug = item.data.title | slugify %}
+{{ "DESCRIPTION:" | append: teaser | append: "\\nhttps://rocissa.org/meetings/" | append: slug | append: "/" | replace: ",", "\\," | wordwrap: 75, "\n  " }}
+DTSTAMP:{{ item.date | date: "%Y%m%dT%H%M00Z"}}
+DTSTART;TZID=America/New_York:{{ item.data.meeting_date | localtime | date: "%Y%m%d" }}T{{ item.data.start_time | replace: ":", "" }}00
+DTEND;TZID=America/New_York:{{ item.data.meeting_date | localtime | date: "%Y%m%d" }}T{{ item.data.end_time | replace: ":", "" }}00
+LOCATION:{{ item.data.location | replace: ",", "\\," }}
+ORGANIZER;CN=Rochester ISSA Chapter:MAILTO:info@rocissa.org
+END:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:{{ item.data.title | replace: ",", "\\," | wordwrap: 75, "\n  " }}
+TRIGGER:-PT30M
+END:VALARM
+END:VCALENDAR
+{%- endfor -%}

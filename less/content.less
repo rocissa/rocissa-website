@@ -210,6 +210,36 @@ body.meeting main,
     }
 }
 
+.meeting-actions {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin-right: 2em;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a {
+      display: block;
+      height: 100%;
+      width: 100%;
+      padding: .25rem;
+      border: 1px solid #2282a3;
+      color: #2282a3;
+      text-decoration: none;
+
+      &:hover {
+        color: #fff;
+        background-color: #2282a3;
+      }
+    }
+  }
+}
+
 .callout {
   font-size: 1.2rem;
   text-align: justify;
