@@ -23,9 +23,8 @@ section: meeting
 
   {{ content }}
 
-  {{ meeting_date }}
-
   {%- assign meetingDate = meeting_date | localtime | date:"%s" -%}
+  {%- assign today = "now" | date: "%Y-%m-%dT00:00:00%z" | date: "%s" -%}
   {%- if meetingDate >= today -%}
   <ul class="meeting-actions">
     {%- if rsvp_link -%}<li><a href="{{ meeting.data.rsvp_link }}"><span class="fa-light fa-reply"></span> RSVP</a></li>{%- endif -%}
