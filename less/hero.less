@@ -7,12 +7,15 @@
 .hero-homepage {
   //background-image: url(/images/skyline.jpg);
   background-image: url(/images/RochesterSkyline2017.jpg);
-  background-size: cover;
   
 }
 @media screen and (min-width: 375px) {
   .hero {
-    height: 280px;
+    height: 200px;
+  }
+
+  .hero-homepage {
+    background-position: 0 -20px;
   }
 }
 @media screen and (min-width: 568px) {
@@ -34,14 +37,26 @@
   .hero {
     height: 450px;
   }
+
+  .hero-homepage {
+    background-position: 0 -60px;
+  }
 }
 @media screen and (min-width: 1024px) {
   .hero {
-    height: 600px;
+    height: 500px;
+  }
+
+  .hero-homepage {
+    background-position: 0 -175px;
   }
 }
 @media screen and (min-width: 1500px) {
   .hero {
     height: 650px;
+  }
+
+  .hero-homepage {
+    background-position: 0 -225px;
   }
 }
