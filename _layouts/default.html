@@ -8,6 +8,12 @@
     {% favicons 'images/issaglobe.svg', '#fff' %}
     <link rel="stylesheet" href="{{ site.baseurl }}/css/site.css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/ab276bde66.css" crossorigin="anonymous">
+    {%- for res in preloads -%}
+       <link rel="preload" fetchpriority="{{ res.fetchpriority }}" as="{{ res.as }}" href="{{ res.href }}" type="{{ res.type }}">
+    {%- endfor -%}
+    <link rel="stylesheet" href="preload" as="script" href="{{ site.baseurl }}/js/site.js">
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin="anonymous">
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin="anonymous">
     <script src="{{ site.baseurl }}/js/site.js" defer></script>
   </head>
   <body {% if section %}class="{{ section }}"{% endif %}>
