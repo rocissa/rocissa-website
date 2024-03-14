@@ -247,3 +247,63 @@ body.meeting main,
 .callout.first {
   margin-top: 4rem;
 }
+
+.meeting-sponsor, .presenter-photos {
+  width: 100%;
+  figure {
+    margin: 0 auto;
+    padding-left: 1rem;
+    max-width: 240px;
+
+    img, figcaption {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+  figure:first-child{
+    padding-left: 0;
+  }
+  @media screen and (min-width: 800px) {
+       display: flex;
+       flex-flow: row wrap;
+       justify-content: center;
+
+       figure {
+        margin: 0;
+       }
+  }
+}
+
+.meeting-sponsor {
+  width: 100%;
+  figure {
+    margin: 0 auto;
+    padding-left: 1rem;
+
+    img, figcaption {
+      text-align: center;
+      font-weight: bold;
+      width: 100%;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+  figure:first-child{
+    padding-left: 0;
+  }
+  @media screen and (min-width: 800px) {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+
+      figure {
+          margin: 0;
+      }
+  }
+}
