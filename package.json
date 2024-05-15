@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run clean; ELEVENTY_ENV=production npx @11ty/eleventy",
-    "build-test": "npx @11ty/eleventy",
-    "watch": "npx @11ty/eleventy --watch",
-    "serve": "npx @11ty/eleventy --serve",
+    "build-test": "npm run clean; npx @11ty/eleventy",
+    "watch": "npm run clean; npx @11ty/eleventy --watch",
+    "serve": "npm run clean; npx @11ty/eleventy --serve",
     "clean": "rm -rf _site/*"
   },
   "author": "Jason R. Pitoniak",
