@@ -12,7 +12,8 @@ eleventyNavigation:
 <h2>Upcoming Meetings</h2>
 
 {%- assign upcoming = false -%}
-{%- for meeting in collections.meetings | sort:"meeting_date" | reverse -%}
+{%- assign meetings = collections.meetings | sort:"data.meeting_date" -%}
+{%- for meeting in meetings -%}
   {%- assign meetingDate = meeting.data.meeting_date | localtime | date:"%s" -%}
   {%- if meetingDate >= today -%}
     <article class="meeting">
@@ -36,7 +37,7 @@ eleventyNavigation:
 <h2>Past Meetings</h2>
 
 {%- assign currentYear = null -%}
-{%- assign revMeetings = collections.meetings | sort:"meeting_date" | reverse -%}
+{%- assign revMeetings = collections.meetings | sort:"data.meeting_date" | reverse -%}
 {%- for meeting in revMeetings -%}
   {%- assign meetingDate = meeting.data.meeting_date | localtime | date:"%s" -%} 
   {%- assign meetingYear = meeting.data.meeting_date | localtime | date:"%Y" -%}
