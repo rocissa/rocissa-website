@@ -12,7 +12,7 @@ eleventyNavigation:
 <h2>Upcoming Meetings</h2>
 
 {%- assign upcoming = false -%}
-{%- for meeting in collections.meetings | sort:"meeting_date" -%}
+{%- for meeting in collections.meetings | sort:"meeting_date" | reverse -%}
   {%- assign meetingDate = meeting.data.meeting_date | localtime | date:"%s" -%}
   {%- if meetingDate >= today -%}
     <article class="meeting">

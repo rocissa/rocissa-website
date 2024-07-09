@@ -16,7 +16,7 @@ preloads:
       <h1>Upcoming Meetings</h1>
       {%- assign upcoming = false -%}
       {%- assign today = "now" | date: "%Y-%m-%dT00:00:00%z" | date: "%s" -%}
-      {%- for meeting in collections.meetings | sort:"meeting_date" -%}
+      {%- for meeting in collections.meetings | sort:"data.meeting_date" -%}
         {%- assign meetingDate = meeting.data.meeting_date | localtime | date:"%s" -%}
         {%- if meetingDate >= today -%}
           <article class="meeting">
