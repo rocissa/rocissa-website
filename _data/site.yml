@@ -2,8 +2,8 @@
 site_title: "ISSA Rochester Chapter | Information Systems Security Association of Rochester, NY"
 site.baseurl: '/'
 
-summit_start_date: 2024-10-09
-summit_end_date: 2024-10-10
+summit_start_date: 2025-10-08
+summit_end_date: 2025-10-09
 summit_location: "Rochester Riverside Convention Center"
 
 # info@rocissa.org encode to try to prevent spam rsvp_email contains mailto: for hrefs, display is address only
