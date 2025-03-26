@@ -24,7 +24,7 @@ Beginning in 2006, the Rochester ISSA members hosted the first annual Rochester 
 |Vice President|Rose Rozeski|
 |Secretary|Keith Hunt|
 |Communications Officer|Joe Pierson|
-|Treasurer|David Warden|
+|Treasurer|Paul Goyette|
 |Membership Director|Tim Minsterman|
 |Web Administrator|Jason Pitoniak|
 |Past President|Rich Savacool|
