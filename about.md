@@ -20,11 +20,11 @@ Beginning in 2006, the Rochester ISSA members hosted the first annual Rochester 
 
 |Position|2025 Officers|
 |--------|-------------|
-|President|John King|
+|President|David Frier|
 |Vice President|Rose Rozeski|
 |Secretary|Keith Hunt|
 |Communications Officer|Joe Pierson|
 |Treasurer|Paul Goyette|
 |Membership Director|Tim Minsterman|
 |Web Administrator|Jason Pitoniak|
-|Past President|Rich Savacool|
+|Past President|John King|
