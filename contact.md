@@ -38,5 +38,5 @@ We want to hear from you.
 
 Our mailing address:<br>
 **ISSA Rochester Chapter<br>
-PO Box 502<br>
-Geneseo, NY 14454**
+PO Box 141<br>
+Pittsford, NY 14534-9998**
