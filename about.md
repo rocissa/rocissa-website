@@ -18,7 +18,7 @@ Beginning in 2006, the Rochester ISSA members hosted the first annual Rochester 
 
 ## Rochester ISSA Officers
 
-|Position|2025 Officers|
+|Position|2026 Officers|
 |--------|-------------|
 |President|David Frier|
 |Vice President|Rose Rozeski|
