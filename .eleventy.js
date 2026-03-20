@@ -5,6 +5,7 @@ const esbuild = require("esbuild")
 const {lessLoader} = require("esbuild-plugin-less")
 const cacheBuster = require("@mightyplow/eleventy-plugin-cache-buster")
 const markdownItAttrs = require("markdown-it-attrs")
+const { markdownItTable } = require("markdown-it-table")
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
 const { EleventyRenderPlugin } = require("@11ty/eleventy")
 const strftime = require('strftime')
@@ -41,7 +42,9 @@ module.exports = function (eleventyConfig) {
     	html: true,  // allow html tags in markdown content
     	breaks: false, // do not treat newlines in markdown as <br> tags
     	linkify: true //convert bare URLs into links
-    }).use(markdownItAttrs)
+    })
+    md.use(markdownItAttrs)
+    md.use(markdownItTable)
     eleventyConfig.setLibrary("md", md)
 
     // implement Jekyll's markdownify plugin (parse markdown in variables)
